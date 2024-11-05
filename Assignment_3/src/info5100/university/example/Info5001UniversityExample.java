@@ -212,6 +212,49 @@ public class Info5001UniversityExample {
         crsload10.registerStudentInClass(e3courseoffer);
         crsload10.registerStudentInClass(courseoffer);
         crsload10.registerStudentInClass(e10courseoffer);
+
+// Step8: Give grades to course
+        Random random = new Random();
+        for (SeatAssignment seatassign : crsload1.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload2.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload3.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload4.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload5.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload6.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload7.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload8.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload9.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
+        for (SeatAssignment seatassign : crsload10.getSeatAssignments()) {
+            float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
+            seatassign.setGrade(randomGPA);
+        }
     }
 }
 
