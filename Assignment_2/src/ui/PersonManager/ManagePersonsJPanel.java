@@ -5,9 +5,11 @@
 package ui.PersonManager;
 
 import java.awt.CardLayout;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.Address;
 import model.Person;
 import model.PersonDirectory;
 
@@ -194,7 +196,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         
         if (selectedRow >= 0) {
             Person selectedPerson = (Person) tblPersons.getValueAt(selectedRow, 0);
-            // we want to open ViewJPanel here for the selected account
+            // we want to open ViewJPanel here for the selected person
             
             ViewPersonJPanel panel = new ViewPersonJPanel(userProcessContainer, personDirectory, selectedPerson);
             userProcessContainer.add("ViewAccountJPanel", panel);
@@ -210,24 +212,40 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        
-            if (!txt_searchbox.getText().isBlank()) {
-                String information = txt_searchbox.getText();
-                Person foundPerson = personDirectory.searchPerson(information);
-                
-            if (foundPerson != null) {
+        if (!txt_searchbox.getText().isBlank()) {
+            String information = txt_searchbox.getText();
+            List<Person> foundPersons = personDirectory.searchPerson(information);
+
+        if (!foundPersons.isEmpty()) {
+            if (foundPersons.size() == 1) {
+                // show the only one person
+                Person foundPerson = foundPersons.get(0);
                 ViewPersonJPanel panel = new ViewPersonJPanel(userProcessContainer, personDirectory, foundPerson);
                 userProcessContainer.add("ViewAccountJPanel", panel);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
             } else {
-                JOptionPane.showMessageDialog(null, "Person not found. Please check the First_name / Last_name / Address and try again","Warning", JOptionPane.WARNING_MESSAGE);
+                // if multiple ppl
+                String[] options = new String[foundPersons.size()];  // store how many ppl have the same
+                for (int i = 0; i < foundPersons.size(); i++) {
+                    options[i] = foundPersons.get(i).getFirstName() + " " + foundPersons.get(i).getLastName();
+                }
+                int selectedIndex = JOptionPane.showOptionDialog(null, "Found multiple people, please choose one", "Which person do you want to view?", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, null);        
+                if (selectedIndex >= 0) {
+                    Person selectedPerson = foundPersons.get(selectedIndex);
+                    ViewPersonJPanel panel = new ViewPersonJPanel(userProcessContainer, personDirectory, selectedPerson);
+                    userProcessContainer.add("ViewAccountJPanel", panel);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+                }
             }
         } else {
-                JOptionPane.showMessageDialog(null, "Please type the First_name / Last_name / Address to view.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Person not found. Please check the First_name / Last_name / Address and try again", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please type the First_name / Last_name / Address to view.", "Warning", JOptionPane.WARNING_MESSAGE);
         }
             txt_searchbox.setText("Type first_name, last_name or street address");
-        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txt_searchboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchboxActionPerformed
@@ -246,21 +264,41 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_searchbox;
     // End of variables declaration//GEN-END:variables
 
+    
     void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblPersons.getModel();
         model.setRowCount(0);
         
         for (Person p : personDirectory.getPerson()) {
+            Address homeAddress = p.getHomeaddr();
+            Address workAddress = p.getWorkaddr();
             
             Object[] row = new Object[6];
-            row[0] = p;
-            row[1] = p.getLastName();
-            row[2] = p.getH_city();
-            row[3] = p.getH_zipcode();
-            row[4] = p.getW_city();
-            row[5] = p.getW_zipcode();
+            row[0] = p; // First Name
+            row[1] = p.getLastName(); // Last Name
+            row[2] = homeAddress.getCity(); // Home City
+            row[3] = homeAddress.getZipcode(); // Home Zip Code
+            row[4] = workAddress.getCity(); // Work City
+            row[5] = workAddress.getZipcode(); // Work Zip Code
             
             model.addRow(row);
         }
+//    void populateTable() {
+//        DefaultTableModel model = (DefaultTableModel) tblPersons.getModel();
+//        model.setRowCount(0);
+//        
+//        for (Person p : personDirectory.getPerson()) {
+//            
+//            Object[] row = new Object[6];
+//            row[0] = p;
+//            row[1] = p.getLastName();
+//            row[2] = p.getH_city();
+//            row[3] = p.getH_zipcode();
+//            row[4] = p.getW_city();
+//            row[5] = p.getW_zipcode();
+//            
+//            model.addRow(row);
+//        }
+//    }
     }
 }

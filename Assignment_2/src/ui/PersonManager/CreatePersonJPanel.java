@@ -7,6 +7,7 @@ package ui.PersonManager;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.Address;
 import model.Person;
 import model.PersonDirectory;
 
@@ -382,6 +383,8 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         String Ssn = txt_ssn.getText();
         byte Age;
         double Shoesnum;
+
+        
         
         String H_streetaddr = txt_h_streetaddr.getText();
         int H_unitnum;
@@ -414,8 +417,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please check the home unit number input.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        
+            
         try {
             W_unitnum = Integer.parseInt(txt_w_unit.getText());
         } catch (Exception e) {
@@ -429,8 +431,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please check the home phone number input.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        
+           
         try {
             W_phonenum = Long.parseLong(txt_w_phone.getText());
         } catch (Exception e) {
@@ -445,25 +446,26 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             return;
         }
         
-        Person p = personDirectory.addPerson();
+
+        Address home_addr = new Address(H_streetaddr, H_unitnum, H_city, H_state, H_zipcode, H_phonenum);
+        Address work_addr = new Address(W_streetaddr, W_unitnum, W_city, W_state, W_zipcode, W_phonenum);
         
-        p.setFirstName(Firstname);
-        p.setLastName(Lastname);
-        p.setSsn(Ssn);
-        p.setAge(Age);
-        p.setShoesnum(Shoesnum);
-        p.setH_streetaddr(H_streetaddr);
-        p.setH_unitnum(H_unitnum);
-        p.setH_city(H_city);
-        p.setH_state(H_state);
-        p.setH_zipcode(H_zipcode);
-        p.setH_phonenum(H_phonenum);
-        p.setW_streetaddr(W_streetaddr);
-        p.setW_unitnum(W_unitnum);
-        p.setW_city(W_city);
-        p.setW_state(W_state);
-        p.setW_zipcode(W_zipcode);
-        p.setW_phonenum(W_phonenum);
+        Person p = personDirectory.addPerson(Firstname, Lastname, Ssn, Age, Shoesnum, home_addr, work_addr);
+        
+        
+        
+//        p.setH_streetaddr(H_streetaddr);
+//        p.setH_unitnum(H_unitnum);
+//        p.setH_city(H_city);
+//        p.setH_state(H_state);
+//        p.setH_zipcode(H_zipcode);
+//        p.setH_phonenum(H_phonenum);
+//        p.setW_streetaddr(W_streetaddr);
+//        p.setW_unitnum(W_unitnum);
+//        p.setW_city(W_city);
+//        p.setW_state(W_state);
+//        p.setW_zipcode(W_zipcode);
+//        p.setW_phonenum(W_phonenum);
         
         JOptionPane.showMessageDialog(this, "Person profile successfully created.", "Information", JOptionPane.INFORMATION_MESSAGE);
         

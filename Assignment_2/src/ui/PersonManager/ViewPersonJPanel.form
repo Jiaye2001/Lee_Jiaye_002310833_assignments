@@ -51,13 +51,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblAge" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_age" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblAge" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_age" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblLastname" alignment="0" min="-2" max="-2" attributes="0"/>

@@ -41,39 +41,33 @@
                       <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Component id="lblTitle" min="-2" pref="415" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace pref="78" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblSsn" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_ssn" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                  <Component id="lblFirstname" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_firstname" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblSsn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_ssn" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="lblFirstname" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_firstname" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblAge" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_age" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblLastname" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_lastname" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblShoesnum" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_shoesnum" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblLastname" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_lastname" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblShoesnum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_shoesnum" min="-2" pref="158" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+              <EmptySpace pref="78" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,7 +84,7 @@
                       <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -132,7 +126,7 @@
                   <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSave" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

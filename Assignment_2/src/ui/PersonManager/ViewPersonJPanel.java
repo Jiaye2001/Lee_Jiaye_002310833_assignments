@@ -8,6 +8,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.Address;
 import model.Person;
 import model.PersonDirectory;
 
@@ -448,26 +449,41 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
         }
         
         
+        Address homeAddress = new Address(H_streetaddr, H_unitnum, H_city, H_state, H_zipcode, H_phonenum);
+//        homeAddress.setStreetaddr((H_streetaddr));
+//        homeAddress.setUnitnum(H_unitnum);
+//        homeAddress.setCity(H_city);
+//        homeAddress.setState(H_state);
+//        homeAddress.setZipcode(H_zipcode);
+//        homeAddress.setPhonenum(H_phonenum);
+
+        Address workAddress = new Address(W_streetaddr, W_unitnum, W_city, W_state, W_zipcode, W_phonenum);
+
         person.setFirstName(Firstname);
         person.setLastName(Lastname);
         person.setSsn(Ssn);
         person.setAge(Age);
         person.setShoesnum(Shoesnum);
-        person.setH_streetaddr(H_streetaddr);
-        person.setH_unitnum(H_unitnum);
-        person.setH_city(H_city);
-        person.setH_state(H_state);
-        person.setH_zipcode(H_zipcode);
-        person.setH_phonenum(H_phonenum);
+        person.setHomeaddr(homeAddress);
+        person.setWorkaddr(workAddress);
         
-        person.setW_streetaddr(W_streetaddr);
-        person.setW_unitnum(W_unitnum);
-        person.setW_city(W_city);
-        person.setW_state(W_state);
-        person.setW_zipcode(W_zipcode);
-        person.setW_phonenum(W_phonenum);
         
-        JOptionPane.showMessageDialog(null, "Person profile successfully updated.", "Warning", JOptionPane.WARNING_MESSAGE);
+        
+//        person.setH_streetaddr(H_streetaddr);
+//        person.setH_unitnum(H_unitnum);
+//        person.setH_city(H_city);
+//        person.setH_state(H_state);
+//        person.setH_zipcode(H_zipcode);
+//        person.setH_phonenum(H_phonenum);
+//        
+//        person.setW_streetaddr(W_streetaddr);
+//        person.setW_unitnum(W_unitnum);
+//        person.setW_city(W_city);
+//        person.setW_state(W_state);
+//        person.setW_zipcode(W_zipcode);
+//        person.setW_phonenum(W_phonenum);
+        
+        JOptionPane.showMessageDialog(null, "Person profile successfully updated.", "Inform", JOptionPane.INFORMATION_MESSAGE);
              
         SetViewMode();
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -545,19 +561,19 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
         txt_age.setText(Byte.toString(person.getAge()));
         txt_shoesnum.setText(Double.toString(person.getShoesnum()));
         
-        txt_h_streetaddr.setText(person.getH_streetaddr());
-        txt_h_unit.setText(Integer.toString(person.getH_unitnum()));
-        txt_h_city.setText(person.getH_city());
-        txt_h_state.setText(person.getH_state());
-        txt_h_zip.setText(person.getH_zipcode());
-        txt_h_phone.setText(Long.toString(person.getH_phonenum()));
+        txt_h_streetaddr.setText(person.getHomeaddr().getStreetaddr());
+        txt_h_unit.setText(Integer.toString(person.getHomeaddr().getUnitnum()));
+        txt_h_city.setText(person.getHomeaddr().getCity());
+        txt_h_state.setText(person.getHomeaddr().getState());
+        txt_h_zip.setText(person.getHomeaddr().getZipcode());
+        txt_h_phone.setText(Long.toString(person.getHomeaddr().getPhonenum()));
         
-        txt_w_streetaddr.setText(person.getW_streetaddr());
-        txt_w_unit.setText(Integer.toString(person.getW_unitnum()));
-        txt_w_city.setText(person.getW_city());
-        txt_w_state.setText(person.getW_state());
-        txt_w_zip.setText(person.getW_zipcode());
-        txt_w_phone.setText(Long.toString(person.getW_phonenum()));
+        txt_w_streetaddr.setText(person.getWorkaddr().getStreetaddr());
+        txt_w_unit.setText(Integer.toString(person.getWorkaddr().getUnitnum()));
+        txt_w_city.setText(person.getWorkaddr().getCity());
+        txt_w_state.setText(person.getWorkaddr().getState());
+        txt_w_zip.setText(person.getWorkaddr().getZipcode());
+        txt_w_phone.setText(Long.toString(person.getWorkaddr().getPhonenum()));
         
     }
     
