@@ -90,6 +90,33 @@ public class Info5001UniversityExample {
 // Step4: Create course schedule
         CourseSchedule courseschedule = department.newCourseSchedule("Fall 2024");
 
+// Step5: Add course offers
+
+        CourseOffer courseoffer = courseschedule.newCourseOffer("Info5100");
+        CourseOffer e1courseoffer = courseschedule.newCourseOffer("Csye6200");
+        CourseOffer e2courseoffer = courseschedule.newCourseOffer("Csye6201");
+        CourseOffer e3courseoffer = courseschedule.newCourseOffer("Tele6255");
+        CourseOffer e4courseoffer = courseschedule.newCourseOffer("Info6210");
+        CourseOffer e5courseoffer = courseschedule.newCourseOffer("Info6372");
+        CourseOffer e6courseoffer = courseschedule.newCourseOffer("Info7215");
+        CourseOffer e7courseoffer = courseschedule.newCourseOffer("Info7200");
+        CourseOffer e8courseoffer = courseschedule.newCourseOffer("Info7290");
+        CourseOffer e9courseoffer = courseschedule.newCourseOffer("Csye5780");
+        CourseOffer e10courseoffer = courseschedule.newCourseOffer("Tele5385");
+
+        // Assign seats to Courses
+        if(courseoffer == null) return;
+        courseoffer.generatSeats(100);
+        e1courseoffer.generatSeats(50);
+        e2courseoffer.generatSeats(50);
+        e3courseoffer.generatSeats(50);
+        e4courseoffer.generatSeats(50);
+        e5courseoffer.generatSeats(50);
+        e6courseoffer.generatSeats(50);
+        e7courseoffer.generatSeats(50);
+        e8courseoffer.generatSeats(50);
+        e9courseoffer.generatSeats(50);
+        e10courseoffer.generatSeats(50); // allow for 50 open seats in the class
     }
 }
 
