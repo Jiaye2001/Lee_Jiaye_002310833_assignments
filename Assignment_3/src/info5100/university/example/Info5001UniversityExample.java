@@ -255,6 +255,77 @@ public class Info5001UniversityExample {
             float randomGPA = 0.0f + random.nextFloat() * (4.0f - 0.0f);
             seatassign.setGrade(randomGPA);
         }
+
+// Step9: Generate Report
+        System.out.println("\nSemester Report: Fall 2024");
+        System.out.println("=============================");
+
+        printStudentReport(student1);
+        printStudentReport(student2);
+        printStudentReport(student3);
+        printStudentReport(student4);
+        printStudentReport(student5);
+        printStudentReport(student6);
+        printStudentReport(student7);
+        printStudentReport(student8);
+        printStudentReport(student9);
+        printStudentReport(student10);
+
+        System.out.println("Department Revenue for Fall 2024: $" + department.calculateRevenuesBySemester("Fall 2024") + "\n");  
+
+    }
+
+    public static void printStudentReport(StudentProfile std) {
+        CourseLoad courseload = std.getCourseLoadBySemester("Fall 2024");
+        if (courseload == null || courseload.getSeatAssignments().isEmpty()) return;
+
+        Person person = std.getPerson();
+        System.out.println("Student: " + person.getPersonId());
+        System.out.println("Courses ");
+
+        double totalGradePoints = 0.0;
+        int totalCredits = 0;
+        double tuition = 0;
+
+        // Print courses
+        for(SeatAssignment seatAssignment : courseload.getSeatAssignments()) {
+            CourseOffer courseOffer = seatAssignment.getSeat().getCourseOffer();
+            Course crs = courseOffer.getSubjectCourse();
+            FacultyProfile professor = courseOffer.getFacultyProfile();
+
+            double grade = seatAssignment.GetCourseStudentScore();
+            int credits = crs.getCredits();
+
+            totalGradePoints += grade;
+            totalCredits += credits;
+            tuition += crs.getCoursePrice();
+
+            System.out.println("- " + crs.getCourseNumber() + ": " + crs.getCourseName());
+            System.out.println("  Professor: " + (professor != null ? professor.getPerson().getPersonId() : "TBA"));
+            System.out.println("  Grade: " + seatAssignment.getGrade());
+            System.out.println("  Credits: " + credits);
+            System.out.println("  Price: $" + crs.getCoursePrice());
+        }
+
+        double semesterGPA = totalCredits > 0 ? (totalGradePoints/totalCredits) : 0.0;
+        String letterGPA;
+        if (semesterGPA >= 4.0) {
+            letterGPA = "A";
+        }
+        else if (semesterGPA <= 4.0 && semesterGPA >= 3.7) {
+            letterGPA = "A-";
+        }
+        else if(semesterGPA <= 3.7 && semesterGPA >= 3.3) {
+            letterGPA = "B+";
+        }
+        else
+            letterGPA = "B";
+
+        System.out.println("Summary");
+        System.out.println("  Total Credits: " + totalCredits);
+        System.out.println("  Total Tuition: $" + tuition);
+        System.out.println("  Semester GPA: " + String.format("%.2f", semesterGPA) + " (" + letterGPA + ")");
+        System.out.println("-----------------------------------");
     }
 }
 
