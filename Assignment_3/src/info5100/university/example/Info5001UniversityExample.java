@@ -328,4 +328,3 @@ public class Info5001UniversityExample {
         System.out.println("-----------------------------------");
     }
 }
-
