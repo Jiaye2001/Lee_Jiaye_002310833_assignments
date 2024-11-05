@@ -86,6 +86,10 @@ public class Info5001UniversityExample {
         for (Course course : crslist) {
             System.out.println(course);
         }
+
+// Step4: Create course schedule
+        CourseSchedule courseschedule = department.newCourseSchedule("Fall 2024");
+
     }
 }
 
