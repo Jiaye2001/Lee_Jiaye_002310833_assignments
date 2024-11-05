@@ -79,5 +79,13 @@ public class Info5001UniversityExample {
         degree.addElectiveCourse(e8crs);
         degree.addElectiveCourse(e9crs);
         degree.addElectiveCourse(e10crs);
+
+// Step3: Browse Courses (1 core + 6 electives)
+        ArrayList<Course> crslist = coursecatalog.getCourseList();
+        System.out.println("Browse courses: ");
+        for (Course course : crslist) {
+            System.out.println(course);
+        }
     }
 }
+
