@@ -117,6 +117,101 @@ public class Info5001UniversityExample {
         e8courseoffer.generatSeats(50);
         e9courseoffer.generatSeats(50);
         e10courseoffer.generatSeats(50); // allow for 50 open seats in the class
+
+
+// Step6: Assign Professors to Courses
+        PersonDirectory pd = department.getPersonDirectory();
+        Person pro1 = pd.newPerson("20240101");
+        Person pro2 = pd.newPerson("20240102");
+        Person pro3 = pd.newPerson("20240103");
+        Person pro4 = pd.newPerson("20240104");
+        Person pro5 = pd.newPerson("20240105");
+        Person pro6 = pd.newPerson("20240106");
+
+        FacultyDirectory fd = department.getFacultyDirectory();
+        FacultyProfile professor1 = fd.newFacultyProfile(pro1);
+        FacultyProfile professor2 = fd.newFacultyProfile(pro2);
+        FacultyProfile professor3 = fd.newFacultyProfile(pro3);
+        FacultyProfile professor4 = fd.newFacultyProfile(pro4);
+        FacultyProfile professor5 = fd.newFacultyProfile(pro5);
+        FacultyProfile professor6 = fd.newFacultyProfile(pro6);
+        courseoffer.AssignAsTeacher(professor1);
+        e1courseoffer.AssignAsTeacher(professor2);
+        e2courseoffer.AssignAsTeacher(professor2);
+        e3courseoffer.AssignAsTeacher(professor3);
+        e4courseoffer.AssignAsTeacher(professor3);
+        e5courseoffer.AssignAsTeacher(professor4);
+        e6courseoffer.AssignAsTeacher(professor4);
+        e7courseoffer.AssignAsTeacher(professor5);
+        e8courseoffer.AssignAsTeacher(professor5);
+        e9courseoffer.AssignAsTeacher(professor6);
+        e10courseoffer.AssignAsTeacher(professor6);
+
+// Step7: Student register for courses
+
+        Person std1 = pd.newPerson("20240001");
+        Person std2 = pd.newPerson("20240002");
+        Person std3 = pd.newPerson("20240003");
+        Person std4 = pd.newPerson("20240004");
+        Person std5 = pd.newPerson("20240005");
+        Person std6 = pd.newPerson("20240006");
+        Person std7 = pd.newPerson("20240007");
+        Person std8 = pd.newPerson("20240008");
+        Person std9 = pd.newPerson("20240009");
+        Person std10 = pd.newPerson("20240010");
+
+        StudentDirectory sd = department.getStudentDirectory();
+
+        StudentProfile student1 = sd.newStudentProfile(std1);
+        StudentProfile student2 = sd.newStudentProfile(std2);
+        StudentProfile student3 = sd.newStudentProfile(std3);
+        StudentProfile student4 = sd.newStudentProfile(std4);
+        StudentProfile student5 = sd.newStudentProfile(std5);
+        StudentProfile student6 = sd.newStudentProfile(std6);
+        StudentProfile student7 = sd.newStudentProfile(std7);
+        StudentProfile student8 = sd.newStudentProfile(std8);
+        StudentProfile student9 = sd.newStudentProfile(std9);
+        StudentProfile student10 = sd.newStudentProfile(std10);
+
+        CourseLoad crsload1 = student1.newCourseLoad("Fall 2024");
+        CourseLoad crsload2 = student2.newCourseLoad("Fall 2024");
+        CourseLoad crsload3 = student3.newCourseLoad("Fall 2024");
+        CourseLoad crsload4 = student4.newCourseLoad("Fall 2024");
+        CourseLoad crsload5 = student5.newCourseLoad("Fall 2024");
+        CourseLoad crsload6 = student6.newCourseLoad("Fall 2024");
+        CourseLoad crsload7 = student7.newCourseLoad("Fall 2024");
+        CourseLoad crsload8 = student8.newCourseLoad("Fall 2024");
+        CourseLoad crsload9 = student9.newCourseLoad("Fall 2024");
+        CourseLoad crsload10 = student10.newCourseLoad("Fall 2024");
+
+        crsload1.registerStudentInClass(courseoffer); // register student1 in class Info 5100
+        crsload1.registerStudentInClass(e1courseoffer); // same student signed up for the elective1 course
+        crsload1.registerStudentInClass(e2courseoffer); // same student signed up for the elective2 course
+        crsload1.registerStudentInClass(e3courseoffer); // same student signed up for the elective3 course
+        crsload2.registerStudentInClass(courseoffer);
+        crsload2.registerStudentInClass(e3courseoffer);
+        crsload2.registerStudentInClass(e4courseoffer);
+        crsload3.registerStudentInClass(e4courseoffer);
+        crsload3.registerStudentInClass(e5courseoffer);
+        crsload3.registerStudentInClass(e6courseoffer);
+        crsload4.registerStudentInClass(e4courseoffer);
+        crsload4.registerStudentInClass(e7courseoffer);
+        crsload4.registerStudentInClass(e9courseoffer);
+        crsload5.registerStudentInClass(e5courseoffer);
+        crsload5.registerStudentInClass(e8courseoffer);
+        crsload5.registerStudentInClass(e9courseoffer);
+        crsload6.registerStudentInClass(e9courseoffer);
+        crsload6.registerStudentInClass(e10courseoffer);
+        crsload7.registerStudentInClass(e3courseoffer);
+        crsload7.registerStudentInClass(e7courseoffer);
+        crsload8.registerStudentInClass(e3courseoffer);
+        crsload8.registerStudentInClass(e5courseoffer);
+        crsload8.registerStudentInClass(e8courseoffer);
+        crsload9.registerStudentInClass(e3courseoffer);
+        crsload9.registerStudentInClass(e4courseoffer);
+        crsload10.registerStudentInClass(e3courseoffer);
+        crsload10.registerStudentInClass(courseoffer);
+        crsload10.registerStudentInClass(e10courseoffer);
     }
 }
 
